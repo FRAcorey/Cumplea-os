@@ -37,6 +37,10 @@ app.get("/", (req, res) => {
 // ✅ UNA sola ruta POST
 app.post("/Fotos", upload.array("fotos"), (req, res) => {
 
+    if (!req.files || req.files.length === 0) {
+        return res.send("No se subieron imágenes");
+    }
+
     const urls = req.files.map(file => file.path);
 
     console.log(urls);
