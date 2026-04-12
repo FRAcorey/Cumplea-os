@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotos</title>
+        <link rel="stylesheet" href="Flash.css">
+</head>
+    <body>
+
+    <div>Aqui podras subir tus fotos y ver las fotos que te saques en el cumpleaños</div>
+    <h2>Subir una imagen</h2>
+
+<form action="/subir" method="POST" enctype="multipart/form-data">
+
+    <button type="button" onclick="document.getElementById('archivo').click()">
+        Elegir foto
+    </button>
+
+    <input type="file" id="archivo" name="fotos" accept="image/*" hidden onchange="mostrarImagen(event)">
+
+    <br><br>
+
+    <img id="preview" width="200">
+
+    <br><br>
+
+    <button type="submit">Subir al servidor</button>
+
+</form>
+
+        <script>
+
+            function mostrarImagen(event) {
+            const img = document.getElementById("preview");
+            img.src = URL.createObjectURL(event.target.files[0]);
+            }
+        </script>
+    </body>
+</html>

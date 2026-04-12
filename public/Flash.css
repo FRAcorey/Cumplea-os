@@ -1,0 +1,28 @@
+div{
+    background-color: #e00c0c;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+button {
+    background-color: #0d8f3f; /* color de fondo */
+    color: white; /* color del texto */
+    padding: 10px 20px; /* tamaño interno */
+    border-radius: 5px; /* bordes redondeados */
+    cursor: pointer; /* cambia el cursor */
+    border: none; /* sin borde */
+    font-size: 16px; /* tamaño del texto */
+    
+}
+
+@media (max-width: 600px) {
+    body {
+        background-color: lightgray;
+    }
+
+    button {
+        font-size: 18px;
+    }
+}

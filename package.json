@@ -1,0 +1,24 @@
+{
+  "name": "nosfeliz",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/FRAcorey/Cumplea-os#readme",
+  "bugs": {
+    "url": "https://github.com/FRAcorey/Cumplea-os/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FRAcorey/Cumplea-os.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "multer": "^2.1.1"
+  }
+}
