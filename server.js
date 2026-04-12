@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/public/index.html");
+    res.sendFile(__dirname + "/public/Fotos.html");
 });
 
 // Servir archivos estáticos
