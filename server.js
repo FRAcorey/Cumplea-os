@@ -31,6 +31,9 @@ app.use(express.static("public"));
 
 // Ruta principal
 app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "Index.html"));
+});
+app.get("/Fotos", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "Fotos.html"));
 });
 
