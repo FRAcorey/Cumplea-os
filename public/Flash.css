@@ -4,7 +4,7 @@ div{
     border-radius: 10px;
     text-align: center;
     font-family: Arial, sans-serif;
-    color: #0e0202;
+    color: #ffffff;
 }
 button {
     background-color: #067083; /* color de fondo */
@@ -17,11 +17,7 @@ button {
     
 }
 
-#galeria {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+
 
 @media (max-width: 600px) {
     body {

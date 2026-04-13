@@ -48,6 +48,18 @@ button:hover::before {
     margin-top: 50px;          /* espacio superior */
 }
 
+#galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+}
+#galeria img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
 @media (max-width: 600px) {
     body {
         background-color: lightgray;
