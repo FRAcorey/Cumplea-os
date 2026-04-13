@@ -40,30 +40,44 @@
         }
     </script>
     <script>
+async function cargarImagenes() {
+    const res = await fetch("/imagenes");
+    const imagenes = await res.json();
+
+    const galeria = document.getElementById("galeria");
+    galeria.innerHTML = ""; // limpiar antes
+
+    imagenes.forEach(url => {
+        const img = document.createElement("img");
+        img.src = url;
+        img.width = 200;
+        galeria.appendChild(img);
+    });
+}
+
+// 👇 esto carga al abrir la página
+cargarImagenes();
+
 const form = document.getElementById("formulario");
 
 form.addEventListener("submit", async (e) => {
-    e.preventDefault(); // evita que cambie de página
+    e.preventDefault();
 
     const formData = new FormData(form);
 
-    const res = await fetch("/Fotos", {
+    await fetch("/Fotos", {
         method: "POST",
         body: formData
     });
 
-    const texto = await res.text();
+    alert("Imagen subida correctamente. Recargando galería...");
 
-    // 🔥 ALERTA
-    alert("Imagen subida correctamente. Para que se vea en la galería, recarga la página.");
-
-    // limpiar input
     form.reset();
 
-    // recargar galería
+    // 👇 recargar galería
     cargarImagenes();
-    });
-    </script>
+});
+</script>
 
 
     </body>
