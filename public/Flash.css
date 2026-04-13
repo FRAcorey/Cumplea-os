@@ -1,13 +1,13 @@
 div{
-    background-color: #e00c0c;
+    background-color: #0b046b;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     font-family: Arial, sans-serif;
-    color: #333;
+    color: #0e0202;
 }
 button {
-    background-color: #0d8f3f; /* color de fondo */
+    background-color: #067083; /* color de fondo */
     color: white; /* color del texto */
     padding: 10px 20px; /* tamaño interno */
     border-radius: 5px; /* bordes redondeados */

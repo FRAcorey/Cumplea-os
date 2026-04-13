@@ -11,7 +11,7 @@
     <div>Aqui podras subir tus fotos y ver las fotos que te saques en el cumpleaños</div>
     <h2>Subir una imagen</h2>
 
-<form action="/Fotos" method="POST" enctype="multipart/form-data">
+<form id="formulario" enctype="multipart/form-data">
 
     <button type="button" onclick="document.getElementById('archivo').click()">
         Elegir foto
@@ -40,19 +40,30 @@
         }
     </script>
     <script>
-    async function cargarImagenes() {
-    const res = await fetch("/imagenes");
-    const imagenes = await res.json();
+const form = document.getElementById("formulario");
 
-    const galeria = document.getElementById("galeria");
+form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // evita que cambie de página
 
-    imagenes.forEach(url => {
-        const img = document.createElement("img");
-        img.src = url;
-        img.width = 200;
-        galeria.appendChild(img);
+    const formData = new FormData(form);
+
+    const res = await fetch("/Fotos", {
+        method: "POST",
+        body: formData
     });
-}
+
+    const texto = await res.text();
+
+    // 🔥 ALERTA
+    alert("Imagen subida correctamente. Para que se vea en la galería, recarga la página.");
+
+    // limpiar input
+    form.reset();
+
+    // recargar galería
+    cargarImagenes();
+    });
+    </script>
 
     cargarImagenes();
     </script>
