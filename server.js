@@ -48,6 +48,23 @@ app.post("/Fotos", upload.array("fotos"), (req, res) => {
     res.send("Imágenes subidas a Cloudinary");
 });
 
+app.get("/imagenes", async (req, res) => {
+    try {
+        const result = await cloudinary.search
+            .expression("folder:uploads")
+            .sort_by("created_at", "desc")
+            .max_results(20)
+            .execute();
+
+        const urls = result.resources.map(img => img.secure_url);
+
+        res.json(urls);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Error al obtener imágenes");
+    }
+});
+
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

@@ -29,12 +29,33 @@
 
 </form>
 
-        <script>
+        <h2>Galería</h2>
+        <div id="galeria"></div>
 
-            function mostrarImagen(event) {
-            const img = document.getElementById("preview");
-            img.src = URL.createObjectURL(event.target.files[0]);
-            }
-        </script>
+    <script>
+
+        function mostrarImagen(event) {
+        const img = document.getElementById("preview");
+        img.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
+    <script>
+    async function cargarImagenes() {
+    const res = await fetch("/imagenes");
+    const imagenes = await res.json();
+
+    const galeria = document.getElementById("galeria");
+
+    imagenes.forEach(url => {
+        const img = document.createElement("img");
+        img.src = url;
+        img.width = 200;
+        galeria.appendChild(img);
+    });
+}
+
+    cargarImagenes();
+    </script>
+
     </body>
 </html>
