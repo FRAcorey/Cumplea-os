@@ -1,8 +1,25 @@
 body {
-    background-color: #fdfac7;
+    background: linear-gradient(270deg, #ff7a00, #ff4d4d, #ff85a1);
+    background-size: 600% 600%;
+
+    animation: moverFondo 8s ease infinite;
+    color: white;
+}
+
+/* animación */
+@keyframes moverFondo {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 .Titulo-P{
-    color: rgb(240, 4, 4);
+    color: rgb(31, 15, 15);
     font-size: 50px;
     text-align: center;
     margin-top: 50px;
@@ -12,20 +29,28 @@ h1{
     font-size: 30px;
     text-align: center;
     margin-top: 20px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-
+.cuidado{
+    background-color: #ccc8c5;
+    color: rgb(31, 15, 15);
+    border-left: #110e0e solid 10px;
+    text-align: left;
+    border: 2px solid #110e0e;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 div{
-    background-color: #204b5e;
+    background-color: #67939b;
     padding: 20px;
+    border: 2px solid #110e0e;
     border-radius: 10px;
     text-align: center;
-    font-family: Arial, sans-serif;
-    color: #ffffff;
+    font-family:'Courier New', Courier, monospace;
 }
 
 button {
-    background-color: #426b65;   /* color de fondo */
-    color: rgba(255, 205, 205, 0.863);             /* color del texto */
+    background-color: #1b1f1d;   /* color de fondo */
+    color: #ecf3f3;             /* color del texto */
     padding: 10px 20px;       /* tamaño interno */
     border-radius: 10px;      /* bordes redondeados */
     cursor: pointer;          /* cambia el cursor */
@@ -55,6 +80,7 @@ button:hover::before {
     gap: 10px;
 }
 #galeria img {
+    border: 3px solid white;
     width: 100%;
     height: 150px;
     object-fit: cover;
@@ -66,8 +92,9 @@ button:hover::before {
 
 @media (max-width: 600px) {
     body {
-        background-color: rgb(206, 201, 201);
-    }
+    background:#67939b;
+    color: white;
+}
 
     button {
         font-size: 18px;
