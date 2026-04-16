@@ -82,8 +82,8 @@ button:hover::before {
 }
 
 .fondoVideo {
-    width: 40%;
-    height: 30%;
+    width: 100%;
+    height: auto;
     display: block;
     margin: 0 auto;
     border-radius: 5px;
