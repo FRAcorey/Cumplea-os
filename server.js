@@ -36,8 +36,8 @@ app.get("/", (req, res) => {
 app.get("/Fotos", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "Fotos.html"));
 });
-app.get("/Horarios", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "Horarios.html"));
+app.get("/horario", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "horario.html"));
 });
 
 // ✅ UNA sola ruta POST
