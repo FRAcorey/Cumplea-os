@@ -43,27 +43,6 @@ app.get("/asistencia", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "asistencia.html"));
 });
 
-// ✅ Ruta para las asistencias
-    const fs = require("fs");
-
-    app.post("/guardar-nombre", (req, res) => {
-    const nombre = req.body.nombre;
-    const apellido = req.body.apellido;
-
-    const nuevo = { nombre, apellido };
-
-    let datos = [];
-
-    if (fs.existsSync("nombres.json")) {
-        datos = JSON.parse(fs.readFileSync("nombres.json"));
-    }
-
-    datos.push(nuevo);
-
-    fs.writeFileSync("nombres.json", JSON.stringify(datos, null, 2));
-
-    res.send("Guardado");
-});
 
 // ✅ UNA sola ruta POST
 app.post("/Fotos", upload.array("fotos"), (req, res) => {

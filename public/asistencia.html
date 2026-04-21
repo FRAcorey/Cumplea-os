@@ -1,68 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Feliz.css">
     <title>Asistencia</title>
 </head>
 <body>
-    
-    <h1>Confirme su asistencia</h1>
-    <p>Por favor, ingrese su nombre y apellido para confirmar su asistencia al evento.</p>
 
-    <form id="formNombre">
+<h1>Confirme su asistencia</h1>
+
+<form id="formNombre">
     <input type="text" name="nombre" placeholder="Nombre" required>
     <input type="text" name="apellido" placeholder="Apellido" required>
     <button type="submit">Guardar</button>
-    </form>
+</form>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <script>
-    const supabase = supabase.createClient(
-    "https://fjiabjaovullgvzchgxy.supabase.co/rest/v1/",
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<script>
+const cliente = supabase.createClient(
+    "https://fjiabjaovullgvzchgxy.supabase.co",
     "sb_publishable_IKlz5qC_uerRcV9JD9qkwg_Q8wXIKxQ"
-    );
+);
 
-    const elem = document.getElementById("formNombre");
+const form = document.getElementById("formNombre");
 
-    elem.addEventListener("submit", async (e) => {
+form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const nombre = elem.nombre.value;
-    const apellido = elem.apellido.value;
+    const nombre = form.nombre.value;
+    const apellido = form.apellido.value;
 
-    const { error } = await supabase
+    const { error } = await cliente
         .from("nombres")
         .insert([{ nombre, apellido }]);
 
     if (error) {
-        alert("Error ");
+        alert("Error 😢");
         console.log(error);
     } else {
-        alert("Guardado ");
+        alert("Guardado 😎");
         form.reset();
     }
-    });
-    </script>
-
-    <script>
-    const form = document.getElementById("formNombre");
-
-    form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-
-    await fetch("/guardar-nombre", {
-        method: "POST",
-        body: formData
-    });
-
-    alert("Nombre guardado");
-    form.reset();
-    });
-    </script>
+});
+</script>
 
 </body>
 </html>
