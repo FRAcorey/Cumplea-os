@@ -1,22 +1,8 @@
 body {
-    background: linear-gradient(270deg, #ff7a00, #ff4d4d, #ff85a1);
-    background-size: 600% 600%;
-
-    animation: moverFondo 8s ease infinite;
-    color: rgb(14, 13, 13);
-}
-
-/* animación */
-@keyframes moverFondo {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+    background-image: url("FondoPagina.jpg"); /* ruta de la imagen de fondo */
+    background-size: cover; /* ajusta la imagen al tamaño del contenedor */
+    background-position: center;
+    background-repeat: no-repeat; /* no se repite */
 }
 .Titulo-P{
     color: rgb(31, 15, 15);
