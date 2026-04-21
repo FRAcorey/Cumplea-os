@@ -30,25 +30,30 @@
     );
 });
 
-const form = document.getElementById("formAsistencia");
+// botones
+const btnSi = document.getElementById("si");
+const btnNo = document.getElementById("no");
 
-form.addEventListener("click", async (e) => {
-    if (e.target.tagName === "BUTTON") {
+// función
+async function guardar(valor) {
+    console.log("Click detectado:", valor); // 🔥 para debug
 
-        const valor = e.target.dataset.valor === "true";
+    const { error } = await cliente
+        .from("asistencia")
+        .insert([{ asiste: valor }]);
 
-        const { error } = await cliente
-            .from("asistencia") // o "nombres" si no la cambiaste
-            .insert([{ asiste: valor }]);
-
-        if (error) {
-            console.log(error);
-            alert("Error al confirmar asistencia");
-        } else {
-            alert(valor ? "Confirmaste asistencia " : "Ok, no asistís ");
-        }
+    if (error) {
+        console.log(error);
+        alert("Error 😢");
+    } else {
+        alert(valor ? "Confirmaste 🎉" : "Ok 👍");
     }
-});
+}
+
+// eventos
+btnSi.addEventListener("click", () => guardar(true));
+btnNo.addEventListener("click", () => guardar(false));
+
 </script>
 
 </body>
