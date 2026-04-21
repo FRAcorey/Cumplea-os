@@ -39,6 +39,9 @@ app.get("/Fotos", (req, res) => {
 app.get("/horario", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "horario.html"));
 });
+app.get("/asistencia", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "asistencia.html"));
+});
 
 // ✅ Ruta para las asistencias
     const fs = require("fs");
