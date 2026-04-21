@@ -37,12 +37,12 @@ form.addEventListener("submit", async (e) => {
         .insert([{ nombre, apellido }]);
 
     if (error) {
-        alert("Error 😢");
-        console.log(error);
+        console.log("ERROR REAL:", error);
+        alert("Error al guardar");
     } else {
+        console.log("OK:", nombre, apellido);
         alert("Guardado 😎");
-        form.reset();
-    }
+    }   
 });
 </script>
 
