@@ -44,7 +44,7 @@ app.get("/asistencia", (req, res) => {
 });
 app.get("/regalo", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "regalo.html"));
-}
+});
 
 // ✅ UNA sola ruta POST
 app.post("/Fotos", upload.array("fotos"), (req, res) => {
