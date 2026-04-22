@@ -36,23 +36,29 @@ const btnNo = document.getElementById("no");
 
 // función
 async function guardar(valor) {
-    console.log("Click detectado:", valor); // 🔥 para debug
+        console.log("Click detectado:", valor);
 
-    const { error } = await cliente
-        .from("asistencia")
-        .insert([{ asiste: valor }]);
+        const { error } = await cliente
+            .from("asistencia")
+            .insert([{ asiste: valor }]);
 
-    if (error) {
-        console.log(error);
-        alert("Error 😢");
-    } else {
-        alert(valor ? "Confirmaste 🎉" : "Ok 👍");
+        if (error) {
+            console.log(error);
+            alert("Error 😢");
+        } else {
+            alert(valor ? "Confirmaste 🎉" : "Ok 👍");
+        }
     }
-}
 
-// eventos
-btnSi.addEventListener("click", () => guardar(true));
-btnNo.addEventListener("click", () => guardar(false));
+    btnSi.addEventListener("click", (e) => {
+        e.preventDefault(); // 🔥 IMPORTANTE
+        guardar(true);
+    });
+
+    btnNo.addEventListener("click", (e) => {
+        e.preventDefault(); // 🔥 IMPORTANTE
+        guardar(false);
+    });
 
 </script>
 
